@@ -1,4 +1,4 @@
-# cpputil v1.4.0
+# cpputil v1.5.1
 
 [![Build Status](https://travis-ci.org/GQCG/cpputil.svg?branch=master)](https://travis-ci.org/GQCG/cpputil)
 
@@ -37,6 +37,6 @@ To install this library:
 ## Usage
 Basic usage of this library can be found in the `tests` directory. If you use CMake in other projects, you can add the following CMake command to the CMakeLists.txt-file:
 
-    find_package(cpputil 1.4.0)
+    find_package(cpputil 1.5.1)
 
 CMake then provides the commands `cpputil_INCLUDE_DIRS` to be used in your `target_include_directories` and the library `cpputil` to be used in your `target_link_libraries`.

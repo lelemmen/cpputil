@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.9 FATAL_ERROR)
 
 # Specify the project, its version and the used language
 project(cpputil
-        VERSION 1.5.0
+        VERSION 1.5.1
         LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -18,7 +18,7 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2 -march=native")
 
 
 
