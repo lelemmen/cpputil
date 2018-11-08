@@ -28,9 +28,10 @@ namespace cpputil {
 
 
 /**
- *  Print the time a function @param function takes to be executed.
+ *  Print the time a function takes to be executed
  *
- *  Takes a @param method_name that is printed as well.
+ *  @param function         the function call to be made
+ *  @param method_name      the name of function that is to be executed
  */
 void printExecutionTime(const std::string& method_name, const std::function<void()>& function);
 

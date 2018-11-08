@@ -28,7 +28,10 @@ namespace io {
 
 
 /**
- *  Read a vector from a given @param filename line by line and add the elements to the given vector @param v.
+ *  @param filename     the name of the file to be read in
+ *  @param v            the vector that gets the contents of the file
+ *
+ *  Read a vector from a given file and put the elements in the given vector
  */
 void readVectorFromFile(const std::string& filename, Eigen::VectorXd& v) {
 
@@ -63,7 +66,10 @@ void readVectorFromFile(const std::string& filename, Eigen::VectorXd& v) {
 
 
 /**
- *  Read an array from a given @param: filename line by line, and add the elements to the given matrix @param: M.
+ *  Read a matrix from a given file and put the elements in the given matrix
+ *
+ *  @param filename     the name of the file to be read in
+ *  @param M            the matrix that gets the contents of the file
  */
 void readArrayFromFile(const std::string& filename, Eigen::MatrixXd& M) {
 
@@ -98,7 +104,10 @@ void readArrayFromFile(const std::string& filename, Eigen::MatrixXd& M) {
 
 
 /**
- *  Read an array from a given @param: filename line by line, and add the elements to the given rank-4 tensor @param: T.
+ *  Read a tensor from a given file and put the elements in the given tensor
+ *
+ *  @param filename     the name of the file to be read in
+ *  @param T            the tensor that gets the contents of the file
  */
 void readArrayFromFile(const std::string& filename, Eigen::Tensor<double, 4>& T) {
 
@@ -134,7 +143,9 @@ void readArrayFromFile(const std::string& filename, Eigen::Tensor<double, 4>& T)
 
 
 /**
- *  Print the contents of a matrix @param M in a fashionable way
+ *  @param M        the matrix to be printed
+ *
+ *  Print the contents of a matrix in a fashionable way
  */
 void print(const Eigen::MatrixXd& M) {
 
@@ -147,7 +158,10 @@ void print(const Eigen::MatrixXd& M) {
 
 
 /**
- *  Print the contents of a matrix @param M to the @param output_filestream
+ *  Print the contents of a matrix to an output filestream
+ *
+ *  @param M                        the matrix to be printed
+ *  @param output_filestream        the stream used for outputting
  */
 void print(const Eigen::MatrixXd& M, std::ofstream& output_filestream) {
 
@@ -160,7 +174,9 @@ void print(const Eigen::MatrixXd& M, std::ofstream& output_filestream) {
 
 
 /**
- *  Print the contents of a rank-four tensor @param: T in a fashionable way.
+ *  @param T        the tensor to be printed
+ *
+ *  Print the contents of a tensor in a fashionable way
  */
 void print(const Eigen::Tensor<double, 4>& T) {
 
@@ -182,7 +198,10 @@ void print(const Eigen::Tensor<double, 4>& T) {
 
 
 /**
- *  Print the contents of a rank-four tensor @param: T to the @param output_filestream
+ *  Print the contents of a matrix to an output filestream
+ *
+ *  @param T                        the tensor to be printed
+ *  @param output_filestream        the stream used for outputting
  */
 void print(const Eigen::Tensor<double, 4>& T, std::ofstream& output_filestream) {
 

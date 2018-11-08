@@ -29,52 +29,69 @@ namespace linalg {
 
 
 /**
- *  @return if two rank-4 tensors @param: M and @param: T are approximately equal with respect to a @param: tolerance.
+ *  @param M            the first tensor
+ *  @param T            the other tensor
+ *  @param tolerance    the tolerance for element-wise comparison
+ *
+ *  @return if two rank-4 tensors are approximately equal with respect to a tolerance
  *
  *  This function is implemented because Eigen::Tensor does not have an isApprox yet.
  */
 bool areEqual(const Eigen::Tensor<double, 4>& M, const Eigen::Tensor<double, 4>& T, double tolerance);
 
 /**
- *  @return if two sets of eigenvalues @param: eigenvalues1 and @param: eigenvalues2 are equal within a given tolerance.
+ *  @param eigenvalues1     the first set of eigenvalues
+ *  @param eigenvalues2     the second set of eigenvalues
+ *  @param tolerance        the tolerance for comparison
+ *
+ *  @return if two sets of eigenvalues are equal within a given tolerance
  */
 bool areEqualEigenvalues(const Eigen::VectorXd& eigenvalues1, const Eigen::VectorXd& eigenvalues2, double tolerance);
 
 /**
- *  @return if two eigenvectors @param: eigenvectors1 and @param: eigenvectors2 are equal within a given
- *  @param: tolerance.
+ *  @param eigenvector1     the first eigenvector
+ *  @param eigenvector2     the second eigenvector
+ *  @param tolerance        the tolerance for comparison
+ *
+ *  @return if two eigenvectors are equal within a given tolerance
  */
-bool areEqualEigenvectors(const Eigen::VectorXd& eigenvectors1, const Eigen::VectorXd& eigenvectors2, double tolerance);
+bool areEqualEigenvectors(const Eigen::VectorXd& eigenvector1, const Eigen::VectorXd& eigenvector2, double tolerance);
 
 /**
- *  @return if two sets of eigenvectors (columns in @param: eigenvectors1 and @param: eigenvectors2) are equal within a
- *  given @param: tolerance.
+ *  @param eigenvectors1        the first set of eigenvectors
+ *  @param eigenvectors2        the second set of eigenvectors
+ *  @param tolerance            the tolerance for comparison
+ *
+ *  @return if two sets of eigenvectors are equal within a given tolerance
  */
 bool areEqualSetsOfEigenvectors(const Eigen::MatrixXd& eigenvectors1, const Eigen::MatrixXd& eigenvectors2,
                                 double tolerance);
 
 
 /**
- *  Given a matrix @param M, @return the strictly lower triangular matrix (i.e. without the diagonal elements) as a
- *  vector in column-major form.
+ *  @param M        the matrix
  *
- *          1       -> (1, 2, 3)
- *          2   3
+ *  @return the strictly lower triangular matrix (i.e. without the diagonal elements) as a vector in column-major form
+ *
+ *          5
+ *          1   5       -> (1, 2, 3)
+ *          2   3   5
  */
 Eigen::VectorXd strictLowerTriangle(const Eigen::MatrixXd& M);
 
 
 /**
- *  Given a vector @param a, fill and return a lower triangular matrix (in column major form) with the elements of a, and the
- *  other elements are set to zero
+ *  @param a        the lower triangle of the matrix in column major form
+ *
+ *  @return a matrix in which the lower triangle is filled with the given vector, and the other elements are set to zero
  */
 Eigen::MatrixXd fillStrictLowerTriangle(const Eigen::VectorXd& a);
 
 
 /**
- *  Reduce a rank-4 tensor @param T to and @return a 2-dimensional matrix
+ *  @param T        the rank-4 tensor
  *
- *  The elements of the tensor @param T are found the matrix such that
+ *  @return the reduced form of a rank-4 tensor. The elements of the tensor are put into the matrix such that
  *      M(m,n) = T(i,j,k,l)
  *
  *  in which
@@ -85,7 +102,10 @@ Eigen::MatrixXd toMatrix(const Eigen::Tensor<double, 4>& T);
 
 
 /**
- *  Given a rank-4 with dimensions (K,K,K,K) tensor @param T, @return the strict "lower triangle" as a matrix in column major form
+ *  @param T        a rank-4 tensor with equal dimensions
+ *
+ *  @return the strict "lower triangle" as a matrix in column major form
+ *
  *  The matrix indices (m,n) come from the tensor indices (i,j,k,l) and are such that:
  *      - m is compounded in a column major way from i and j, with the restriction i>j
  *      - n is compounded in a column major way from k and l, with the restriction k>l
